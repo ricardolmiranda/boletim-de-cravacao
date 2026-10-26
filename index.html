@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boletim de Cravação – Ponte Salvador–Itaparica</title>
+<style>
+:root{--baia:#0e2a47;--estai:#0f8b9e;--dende:#e8892b;--papel:#f2f5f8;--linha:#cfd9e2;--tinta:#16222f;--suave:#5b6b7a;--ok:#1f7a4d;--erro:#b3261e}
+*{box-sizing:border-box}
+body{margin:0;background:var(--papel);color:var(--tinta);font:15px/1.45 "Segoe UI",system-ui,-apple-system,Roboto,sans-serif}
+.folha{max-width:960px;margin:0 auto;background:#fff}
+header{background:var(--baia);color:#fff;position:relative;overflow:hidden;padding:22px 28px 0}
+header svg.estai{position:absolute;right:0;bottom:0;height:100%;width:56%;opacity:.95}
+.topo{display:flex;gap:16px;align-items:center;position:relative;z-index:1}
+.logo{width:64px;height:64px;border:1px dashed #ffffff66;border-radius:8px;display:grid;place-items:center;font-size:11px;color:#ffffffaa;cursor:pointer;overflow:hidden;text-align:center;flex:none}
+.logo img{width:100%;height:100%;object-fit:contain;background:#fff}
+h1{margin:0;font-size:28px;font-weight:800;letter-spacing:-.3px;line-height:1.1}
+.sub{color:#bcd3e6;font-size:14px;margin-top:4px}
+.faixa{height:6px;background:linear-gradient(90deg,var(--dende) 0 22%,var(--estai) 22% 100%);margin:22px -28px 0;position:relative;z-index:1}
+main{padding:22px 28px 30px}
+section{margin-bottom:22px;break-inside:avoid}
+h2{font-size:17px;margin:0 0 12px;color:var(--baia);display:flex;align-items:center;gap:10px}
+h2::before{content:"";width:5px;height:18px;background:var(--dende);border-radius:2px}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:12px}
+label{display:block;font-size:12.5px;font-weight:600;color:var(--suave);margin-bottom:4px}
+input,textarea{width:100%;padding:10px;font:inherit;border:1px solid var(--linha);border-radius:6px;background:#fbfcfd;color:var(--tinta)}
+input:focus,textarea:focus,button:focus-visible{outline:3px solid #0f8b9e55;border-color:var(--estai)}
+.ro{background:#e8eef3;font-weight:700;color:var(--baia)}
+.res{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:6px}
+.res div{border-left:5px solid var(--estai);background:var(--papel);padding:10px 14px;border-radius:0 8px 8px 0}
+.res div:nth-child(2){border-color:var(--ok)}.res div:nth-child(3){border-color:var(--dende)}
+.res b{display:block;font-size:24px;color:var(--baia)}
+.res small{color:var(--suave);font-size:12px}
+.avisos{margin:12px 0 0;padding:0;list-style:none}
+.avisos li{background:#fdf1e3;border-left:5px solid var(--dende);padding:8px 12px;margin-bottom:6px;font-size:13.5px;border-radius:0 6px 6px 0}
+.avisos li.e{background:#fbe9e7;border-color:var(--erro)}
+table{width:100%;border-collapse:collapse}
+th{background:var(--baia);color:#fff;font-size:13px;padding:9px;font-weight:600}
+td{border-bottom:1px solid var(--linha);padding:6px;text-align:center}
+td input{text-align:center;padding:7px}
+tfoot td{font-weight:700;background:var(--papel)}
+button{font:inherit;font-weight:700;border:0;border-radius:6px;padding:11px 16px;cursor:pointer;color:#fff;background:var(--estai)}
+button:hover{filter:brightness(.92)}
+.sec{background:#fff;color:var(--baia);border:1px solid var(--linha)}
+.x{background:none;color:var(--erro);padding:4px 8px}
+.acoes{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.acoes .imp{background:var(--dende);flex:1;min-width:220px;font-size:16px}
+.croqui{border:1px solid var(--linha);border-radius:8px;overflow:hidden}
+.croqui p{margin:0;padding:10px 14px;font-size:13px;color:var(--suave)}
+.assin{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:34px}
+.assin div{border-top:1px solid var(--tinta);padding-top:6px;font-size:12.5px;text-align:center;color:var(--suave)}
+.assin input{border:0;background:none;text-align:center;padding:2px;font-weight:600}
+.so-print{display:none}
+@media (prefers-reduced-motion:no-preference){.res b{transition:color .3s}}
+@media (max-width:560px){header svg.estai{opacity:.35}h1{font-size:23px}main{padding:18px 16px}}
+@media print{
+ @page{size:A4 portrait;margin:9mm}
+ body{background:#fff;font-size:11.5px}
+ *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .folha{max-width:none}
+ header{padding:14px 16px 0}h1{font-size:22px}main{padding:12px 4px}
+ .nao-print,.x,.logo:empty{display:none!important}
+ .logo{border:0}
+ section{margin-bottom:12px}
+ input,textarea{border:0;border-bottom:1px solid #8a99a8;border-radius:0;background:none!important;padding:3px 2px;color:#000;resize:none}
+ .ro{font-weight:700}
+ .row{grid-template-columns:repeat(4,1fr);gap:8px}
+ .res{grid-template-columns:repeat(3,1fr)}
+ .res b{font-size:18px}
+ .avisos li{font-size:11px}
+ th{padding:5px}td{padding:2px}
+ .so-print{display:block;font-size:10px;color:var(--suave);margin-top:10px;text-align:right}
+}
+</style>
+</head>
+<body>
+<div class="folha">
+<header>
+ <svg class="estai" viewBox="0 0 520 150" preserveAspectRatio="xMaxYMax slice" aria-hidden="true">
+  <g id="estais" stroke="#58c4d4" stroke-width="1.1" opacity=".8"></g>
+  <path d="M286 18 L292 18 L296 150 L282 150Z" fill="#e8892b"/>
+  <path d="M0 126 H520 V150 H0Z" fill="#0b2038"/>
+  <path d="M0 126 H520" stroke="#e8892b" stroke-width="2"/>
+ </svg>
+ <div class="topo">
+  <label class="logo" title="Toque para inserir a logomarca" id="logoBox">Logo<input type="file" id="logoFile" accept="image/*" hidden></label>
+  <div><h1>Boletim de Cravação</h1><div class="sub">Ponte Salvador–Itaparica · Fundações marítimas</div></div>
+ </div>
+ <div class="faixa"></div>
+</header>
+
+<main>
+<section>
+ <h2>Identificação</h2>
+ <div class="row">
+  <div><label for="bol">Boletim nº</label><input id="bol"></div>
+  <div><label for="data">Data</label><input id="data" type="date"></div>
+  <div><label for="apoio">Apoio</label><input id="apoio" value="Plataforma de Operação"></div>
+  <div><label for="estaca">Estaca</label><input id="estaca" value="K2"></div>
+  <div><label for="L">Comprimento total L (m)</label><input id="L" type="number" inputmode="decimal" step="0.01" value="33.50"></div>
+ </div>
+ <div class="row">
+  <div><label for="martelo">Martelo de impacto</label><input id="martelo"></div>
+  <div><label for="pilao">Peso do pilão (kN)</label><input id="pilao" inputmode="decimal"></div>
+  <div><label for="vibra">Vibratório</label><input id="vibra"></div>
+ </div>
+</section>
+
+<section>
+ <h2>Maré de referência (Tábua da Marinha)</h2>
+ <p style="margin:0 0 8px;font-size:13px;color:var(--suave)">Informe as marés do dia em ordem de horário (2 a 4). Deixe em branco as que não usar. Baixa e alta são identificadas automaticamente.</p>
+ <table>
+  <thead><tr><th>Maré</th><th>Hora</th><th>Cota (m)</th></tr></thead>
+  <tbody>
+   <tr><td id="mTp1">–</td><td><input id="mT1" type="time" value="07:16"></td><td><input id="mH1" type="number" inputmode="decimal" step="0.01" value="0.45"></td></tr>
+   <tr><td id="mTp2">–</td><td><input id="mT2" type="time" value="13:38"></td><td><input id="mH2" type="number" inputmode="decimal" step="0.01" value="2.13"></td></tr>
+   <tr><td id="mTp3">–</td><td><input id="mT3" type="time"></td><td><input id="mH3" type="number" inputmode="decimal" step="0.01"></td></tr>
+   <tr><td id="mTp4">–</td><td><input id="mT4" type="time"></td><td><input id="mH4" type="number" inputmode="decimal" step="0.01"></td></tr>
+  </tbody>
+ </table>
+</section>
+
+<section>
+ <h2>Croqui das fases</h2>
+ <div class="croqui">
+ <svg viewBox="0 0 900 300" width="100%" role="img" aria-label="Croqui das três fases de cravação">
+  <defs>
+   <linearGradient id="gM" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#58c4d4"/><stop offset="1" stop-color="#0e2a47"/></linearGradient>
+   <linearGradient id="gC" x1="0" x2="1"><stop offset="0" stop-color="#6b7b8b"/><stop offset=".5" stop-color="#e3e9ef"/><stop offset="1" stop-color="#4a5866"/></linearGradient>
+  </defs>
+  <rect width="900" height="150" fill="#eaf3f8"/>
+  <rect y="150" width="900" height="90" fill="url(#gM)" opacity=".85"/>
+  <path d="M0 240 Q450 230 900 240 V300 H0Z" fill="#b99468"/>
+  <text x="450" y="278" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">Leito marinho (solo / folhelho)</text>
+  <rect x="120" y="40" width="50" height="190" fill="url(#gC)"/><rect x="420" y="70" width="50" height="190" fill="url(#gC)"/><rect x="720" y="100" width="50" height="190" fill="url(#gC)"/>
+  <line x1="0" y1="150" x2="900" y2="150" stroke="#fff" stroke-width="2" stroke-dasharray="6 5"/>
+  <text x="12" y="143" font-size="12" fill="#0e2a47" font-weight="700">NA</text>
+  <g font-size="15" font-weight="800" fill="#0e2a47" text-anchor="middle"><text x="145" y="26">Fase 1 · Posicionamento</text><text x="445" y="26">Fase 2 · Vibratório</text><text x="745" y="26">Fase 3 · Impacto</text></g>
+  <g font-weight="800" font-size="14" text-anchor="middle">
+   <rect x="180" y="137" width="34" height="24" rx="4" fill="#fff" stroke="#e8892b"/><text x="197" y="154" fill="#e8892b">C1</text>
+   <rect x="480" y="137" width="34" height="24" rx="4" fill="#fff" stroke="#e8892b"/><text x="497" y="154" fill="#e8892b">C2</text>
+   <rect x="780" y="137" width="34" height="24" rx="4" fill="#fff" stroke="#e8892b"/><text x="797" y="154" fill="#e8892b">C3</text>
+  </g>
+ </svg>
+ <p><b>C1</b> leitura inicial, estaca assente no leito (t0) · <b>C2</b> leitura ao fim do vibratório (t2) · <b>C3</b> leitura ao fim do impacto (t4). Cotas lidas em relação ao NA.</p>
+ </div>
+</section>
+
+<section>
+ <h2>Leituras e tempos</h2>
+ <div class="row">
+  <div><label for="c1">C1 – inicial (m)</label><input id="c1" type="number" inputmode="decimal" step="0.01" value="18.00"></div>
+  <div><label for="c2">C2 – pós-vibratório (m)</label><input id="c2" type="number" inputmode="decimal" step="0.01" value="19.00"></div>
+  <div><label for="c3">C3 – final (m)</label><input id="c3" type="number" inputmode="decimal" step="0.01" value="23.50"></div>
+ </div>
+ <div class="row">
+  <div><label for="t0">t0 – estaca assente (C1)</label><input id="t0" type="time" value="09:00"></div>
+  <div><label for="t1">t1 – início vibratório</label><input id="t1" type="time" value="10:00"></div>
+  <div><label for="t2">t2 – fim vibratório (C2)</label><input id="t2" type="time" value="10:25"></div>
+  <div><label for="t3">t3 – início impacto</label><input id="t3" type="time" value="10:30"></div>
+  <div><label for="t4">t4 – fim impacto (C3)</label><input id="t4" type="time" value="11:25"></div>
+ </div>
+ <div class="res">
+  <div><small>NA em t0 / t4</small><b id="oNa">–</b></div>
+  <div><small>Cravação efetiva no solo<br>(C3 − C1) − variação do NA</small><b id="oCrav">–</b></div>
+  <div><small>Cota da ponta da estaca<br>NA(t4) − C3</small><b id="oPonta">–</b></div>
+ </div>
+ <ul class="avisos" id="avisos"></ul>
+</section>
+
+<section>
+ <h2>Avanço com martelo de impacto</h2>
+ <table>
+  <thead><tr><th>Avanço</th><th>Cota (m)</th><th>Nº de golpes</th><th>H queda (cm)</th><th class="nao-print"></th></tr></thead>
+  <tbody id="tbAv"></tbody>
+  <tfoot><tr><td colspan="2">Total</td><td id="totG">0</td><td colspan="2"></td></tr></tfoot>
+ </table>
+ <div class="acoes nao-print"><button class="sec" id="addAv" type="button">Registrar avanço de 50 cm</button></div>
+</section>
+
+<section>
+ <h2>Nega</h2>
+ <div class="row">
+  <div><label for="H">Altura de queda H (m)</label><input id="H" type="number" inputmode="decimal" step="0.01" value="1.00"></div>
+  <div><label for="n1">1ª série – 10 golpes (mm)</label><input id="n1" type="number" inputmode="decimal" value="21"></div>
+  <div><label for="n2">2ª série – 10 golpes (mm)</label><input id="n2" type="number" inputmode="decimal" value="19"></div>
+  <div><label for="n3">3ª série – 10 golpes (mm)</label><input id="n3" type="number" inputmode="decimal" value="20"></div>
+ </div>
+ <div class="row">
+  <div><label>Soma das 3 séries (mm)</label><input id="nS" class="ro" readonly></div>
+  <div><label>Média por série (mm/10 golpes)</label><input id="nM" class="ro" readonly></div>
+  <div><label>Nega média por golpe (mm)</label><input id="nG" class="ro" readonly></div>
+ </div>
+</section>
+
+<section>
+ <h2>Observações</h2>
+ <textarea id="obs" rows="3"></textarea>
+ <div class="assin">
+  <div><input id="rOp" placeholder="Nome"><br>Operador do equipamento</div>
+  <div><input id="rFi" placeholder="Nome"><br>Fiscalização</div>
+  <div><input id="rEn" placeholder="Nome"><br>Responsável técnico</div>
+ </div>
+ <div class="so-print" id="carimbo"></div>
+</section>
+
+<div class="acoes nao-print">
+ <button class="imp" type="button" onclick="window.print()">Gerar PDF (imprimir)</button>
+ <button class="sec" type="button" id="limpar">Novo boletim</button>
+</div>
+</main>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const IDS=["bol","data","apoio","estaca","L","martelo","pilao","vibra","mT1","mH1","mT2","mH2","mT3","mH3","mT4","mH4","c1","c2","c3","t0","t1","t2","t3","t4","H","n1","n2","n3","obs","rOp","rFi","rEn"];
+let avancos=[]; // {g,h}
+const KEY="boletimCravacao.v2";
+
+// estais (cabos) do cabeçalho
+(function(){let s="";const px=300,topY=22;
+ for(let i=1;i<=9;i++){const y=topY+i*9;s+=`<line x1="${px}" y1="${y}" x2="${px-i*26-10}" y2="126"/><line x1="${px}" y1="${y}" x2="${px+i*20+10}" y2="126"/>`}
+ $("estais").innerHTML=s;
+})();
+
+const toMin=s=>{if(!s)return null;const p=s.split(":");return +p[0]*60+ +p[1]};
+const num=id=>{const v=parseFloat($(id).value);return isNaN(v)?null:v};
+
+function pontos(){
+ const p=[];let prev=-1,off=0;
+ for(let i=1;i<=4;i++){
+  const t=toMin($("mT"+i).value),h=num("mH"+i);
+  $("mTp"+i).textContent="–";
+  if(t===null||h===null)continue;
+  let tt=t+off;if(tt<prev){off+=1440;tt=t+off}
+  prev=tt;p.push({t:tt,h,i});
+ }
+ p.forEach((q,k)=>{
+  const nb=p[k+1]||p[k-1];
+  if(nb)$("mTp"+q.i).textContent=q.h>nb.h?"Alta":"Baixa";
+ });
+ return p;
+}
+
+// interpolação cossenoidal entre duas marés consecutivas
+function nivel(t,p){
+ let tt=t;if(tt<p[0].t&&tt+1440<=p[p.length-1].t)tt+=1440;
+ let i=0;while(i<p.length-2&&tt>p[i+1].t)i++;
+ const a=p[i],b=p[i+1],d=b.t-a.t,x=d>0?(tt-a.t)/d:0;
+ return {h:a.h+(b.h-a.h)/2*(1-Math.cos(Math.PI*x)),dentro:tt>=p[0].t&&tt<=p[p.length-1].t};
+}
+
+function calcular(){
+ const av=[];const e=m=>av.push(["e",m]),w=m=>av.push(["w",m]);
+ const P=pontos();
+ for(let i=2;i<P.length;i++){if((P[i].h-P[i-1].h)*(P[i-1].h-P[i-2].h)>0){w("As marés informadas não alternam entre baixa e alta; confira a tábua.");break}}
+ const t0=toMin($("t0").value),t4=toMin($("t4").value),c1=num("c1"),c2=num("c2"),c3=num("c3"),L=num("L");
+ let ok=P.length>=2&&[t0,t4,c1,c3].every(v=>v!==null);
+ if(!ok){$("oNa").textContent=$("oCrav").textContent=$("oPonta").textContent="–";w("Informe ao menos 2 marés, os tempos t0/t4 e as cotas C1 e C3 para calcular.")}
+ else{
+  const a=nivel(t0,P),b=nivel(t4,P);
+  if(t4<=t0)e("t4 deve ser posterior a t0.");
+  if(!a.dentro||!b.dentro)w("Algum horário está fora do período coberto pela tábua informada; o NA foi extrapolado. Confira as marés.");
+  const dN=b.h-a.h,crav=(c3-c1)-dN;
+  $("oNa").textContent=a.h.toFixed(2)+" / "+b.h.toFixed(2)+" m";
+  $("oCrav").textContent=crav.toFixed(2)+" m";
+  $("oPonta").textContent=(b.h-c3).toFixed(2)+" m";
+  if(c3<c1)e("C3 menor que C1: confira as leituras.");
+  if(L!==null&&crav>L)e("Cravação efetiva maior que o comprimento da estaca.");
+  if(Math.abs(dN)>0.5)w("Variação do NA entre t0 e t4 de "+dN.toFixed(2)+" m: a correção de maré é relevante.");
+ }
+ if(c2!==null&&c1!==null&&c3!==null&&(c2<c1||c2>c3))w("C2 está fora do intervalo entre C1 e C3.");
+ $("avisos").innerHTML=av.map(x=>`<li class="${x[0]}">${x[1]}</li>`).join("");
+}
+
+function nega(){
+ const v=["n1","n2","n3"].map(num);if(v.some(x=>x===null)){$("nS").value=$("nM").value=$("nG").value="";return}
+ const s=v[0]+v[1]+v[2];$("nS").value=s;$("nM").value=(s/3).toFixed(1);$("nG").value=(s/30).toFixed(2);
+}
+
+function tabela(){
+ const c2=num("c2"),tb=$("tbAv");
+ tb.innerHTML=avancos.map((r,i)=>`<tr><td>+ ${(i+1)*50} cm</td>
+  <td>${c2===null?"–":(c2+(i+1)*.5).toFixed(2)}</td>
+  <td><input type="number" inputmode="numeric" data-i="${i}" data-f="g" value="${r.g??""}"></td>
+  <td><input type="number" inputmode="numeric" data-i="${i}" data-f="h" value="${r.h??""}"></td>
+  <td class="nao-print"><button class="x" type="button" data-del="${i}" aria-label="Remover avanço">Remover</button></td></tr>`).join("");
+ totais();
+}
+function totais(){$("totG").textContent=avancos.reduce((s,r)=>s+(+r.g||0),0)}
+
+function salvar(){
+ try{const o={avancos};IDS.forEach(i=>o[i]=$(i).value);o.logo=$("logoBox").querySelector("img")?.src||"";localStorage.setItem(KEY,JSON.stringify(o))}catch(e){}
+}
+function carregar(){
+ try{const o=JSON.parse(localStorage.getItem(KEY)||"null");if(!o)return;
+  IDS.forEach(i=>{if(o[i]!==undefined)$(i).value=o[i]});avancos=o.avancos||[];if(o.logo)setLogo(o.logo)}catch(e){}
+}
+function setLogo(src){const b=$("logoBox");b.querySelector("img")?.remove();const im=new Image();im.src=src;b.firstChild.textContent="";b.prepend(im)}
+
+function atualizar(){calcular();nega();salvar();
+ const d=$("data").value;$("carimbo").textContent="Boletim "+($("bol").value||"s/n")+" · Estaca "+$("estaca").value+(d?" · "+d.split("-").reverse().join("/"):"")}
+
+document.addEventListener("input",e=>{
+ const t=e.target;
+ if(t.dataset.f){avancos[t.dataset.i][t.dataset.f]=t.value;totais();salvar();return}
+ if(t.id==="c2")tabela();
+ if(IDS.includes(t.id))atualizar();
+});
+document.addEventListener("click",e=>{
+ const d=e.target.dataset.del;if(d!==undefined){avancos.splice(+d,1);tabela();salvar()}
+});
+$("addAv").onclick=()=>{avancos.push({g:"",h:""});tabela();salvar()};
+$("limpar").onclick=()=>{if(confirm("Apagar os dados deste boletim e começar um novo?")){try{localStorage.removeItem(KEY)}catch(e){}location.reload()}};
+$("logoFile").onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{setLogo(r.result);salvar()};r.readAsDataURL(f)};
+
+document.addEventListener("DOMContentLoaded",()=>{carregar();tabela();atualizar()});
+</script>
+</body>
+</html>
